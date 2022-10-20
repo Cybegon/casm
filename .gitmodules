@@ -1,0 +1,3 @@
+[submodule "extlibs/Simple-Lexer"]
+	path = extlibs/Simple-Lexer
+	url = https://github.com/Cybegon/Simple-Lexer.git
