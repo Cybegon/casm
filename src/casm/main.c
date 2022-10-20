@@ -21,6 +21,11 @@ const SLLexList lexList[] = {
         SL_SET_LEXEME("bits", T_DIRECTIVE, SL_TOKEN_INFO_NONE, NULL),
         SL_SET_LEXEME("section", T_DIRECTIVE, SL_TOKEN_INFO_NONE, NULL),
 
+        SL_SET_LEXEME("global", T_DIRECTIVE, SL_TOKEN_INFO_NONE, NULL),
+        SL_SET_LEXEME("extern", T_DIRECTIVE, SL_TOKEN_INFO_NONE, NULL),
+
+        SL_SET_LEXEME("db", T_DIRECTIVE, SL_TOKEN_INFO_NONE, NULL),
+
         // Base
         SL_SET_LEXEME("mov", T_KEYWORD, SL_TOKEN_INFO_NONE, NULL),
         SL_SET_LEXEME("push", T_KEYWORD, SL_TOKEN_INFO_NONE, NULL),
@@ -109,7 +114,7 @@ int main(int argc, char* argv[])
 
     for (SLToken token = sl_getNextToken(ctx); token.type != T_EOF; token = sl_getNextToken(ctx)) {
         switch (token.type) {
-            case T_IDENTIFIER: case T_KEYWORD: case T_STRING:
+            case T_IDENTIFIER: case T_KEYWORD: case T_STRING: case T_DIRECTIVE:
             case T_LABEL: {
                 printf("%s name: %s\n", sl_getTokenType(ctx, token).data, token.identString);
                 break;
